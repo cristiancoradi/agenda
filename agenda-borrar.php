@@ -38,7 +38,7 @@
         $idContacto=$_POST['txtIdContacto'];    
 
         //(SQL) Instruccion SQL modificacion
-        $consulta = "DELETE FROM contactos WHERE idContacto = $idContacto";
+        $consulta = "DELETE FROM contactos WHERE idContacto = $idContacto ";
 
         // echo "<SCRIPT type='text/javascript' language='JavaScript'> alert('".$consulta."');</SCRIPT>";  
         

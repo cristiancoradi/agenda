@@ -49,7 +49,7 @@
                     <h1>Contactos</h1>
                     <?php
                     // Solicitamos al gestor de MySQL que entregue aquellos datos que queremos mostrar en nuestras páginas. (SQL)
-                        $consulta = "SELECT idContacto, nombre, email, telefono FROM contactos";
+                        $consulta = "SELECT C.idContacto, C.nombre, C.email, C.telefono FROM contactos C";
                         $result = $conn->query($consulta);  // Acá realmente se hace la consulta, result es un conjunto de filas
                         // Si la cantidad de filas es mayor que 0 muestra
                         if ($result->num_rows > 0) {
@@ -71,9 +71,9 @@
                                         echo "<td>" . $row["nombre"] . "</td>"; 
                                         echo "<td>" . $row["email"] . "</td>";
                                         echo "<td>" . $row["telefono"] . "</td>";
-                                        echo "<td><a href='agenda-modificacion.php?idcontacto=". $row["idcontacto"]."'>Editar</a>";
+                                        echo "<td><a href='agenda-modificacion.php?idContacto=". $row["idContacto"]."'>Editar</a>";
                                         echo "&nbsp;";
-                                        echo "<a href='agenda-borrar.php?idcontacto=". $row["idcontacto"]."'>Borrar</a></td>";
+                                        echo "<a href='agenda-borrar.php?idContacto=". $row["idContacto"]."'>Borrar</a></td>";
                                     echo "</tr>";
                                     }
                                 }else {

@@ -41,7 +41,7 @@
         $telefono=$_POST['txtTelefono'];      
 
         //(SQL) Instruccion SQL modificacion
-        $consulta = "UPDATE contactos SET nombre='$nombre',email='$email', telefono='$telefono' WHERE idContacto = $idContacto ";
+        $consulta = "UPDATE Contactos SET nombre='$nombre',email='$email', telefono='$telefono' WHERE idContacto = $idContacto ";
 
         //Para que PHP envíe una consulta SQL hacia el gestor de MySQL (PHP)
         $datos= mysqli_query ($conn, $consulta);
@@ -55,7 +55,7 @@
 
         $idContacto=$_GET['idContacto'];
 
-        $consulta = "SELECT idContacto, nombre, email, telefono FROM contactos WHERE idContacto = " . $idContacto;
+        $consulta = "SELECT idContacto, nombre, email, telefono FROM Contactos WHERE idContacto = " . $idContacto;
 
         echo "<SCRIPT type='text/javascript' language='JavaScript'> alert('".$consulta."');</SCRIPT>"; 
 

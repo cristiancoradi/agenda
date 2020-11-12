@@ -1,9 +1,10 @@
 <?php
 // Datos para realizar la conexión
 
-$username = "root";
-$password = " ";
-$dbname = "phpstatt_agenda";
+$servername = "localhost";
+$username = "criss";
+$password = "salva04";
+$dbname = "phpstatt_agenda.sql";
 // Crear la conexión con nuestra BD
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Chequea la conexión

@@ -48,8 +48,8 @@
                     <br>
                     <h1>Contactos</h1>
                     <?php
-                    // Solicitamos al gestor de MySQL que entregue aquellos datos que queremos mostrar en nuestras páginas. (SQL)
-                        $consulta = "SELECT C.idContacto, C.nombre, C.email, C.telefono FROM contactos C";
+                    // Solicitamos al gestor de MySQL que entregue aquellos datos que queremos mostrar en nuestras páginas. (SQL) la consulta esta temporal para mostrar
+                        $consulta = "SELECT * FROM contactos LEFT JOIN redes on contactos.idContacto=redes.idContacto ";
                         $result = $conn->query($consulta);  // Acá realmente se hace la consulta, result es un conjunto de filas
                         // Si la cantidad de filas es mayor que 0 muestra
                         if ($result->num_rows > 0) {
@@ -60,7 +60,11 @@
                             <th>Nombre</th>
                             <th>eMail</th>
                             <th>telefono</th>
-                            <th>Acciones</th>
+                            <th>red</th>
+                            <th>enlace a red</th>
+                            <th>Editar</th>
+                            <th>Borrar</th>
+                            <th>Alta</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -71,10 +75,14 @@
                                         echo "<td>" . $row["nombre"] . "</td>"; 
                                         echo "<td>" . $row["email"] . "</td>";
                                         echo "<td>" . $row["telefono"] . "</td>";
-                                        echo "<td><a href='agenda-modificacion.php?idContacto=". $row["idContacto"]."'>Editar</a>";
+                                        echo "<td>" . $row["nombreRed"] . "</td>";
+                                        echo "<td>" . $row["enlaceRed"] . "</td>";
+                                        echo "<td><a href='agenda-modificacion.php?idContacto=". $row["idContacto"]."'>Editar</a></td>";
                                         echo "&nbsp;";
-                                        echo "<a href='agenda-borrar.php?idContacto=". $row["idContacto"]."'>Borrar</a></td>";
+                                        echo "<td><a href='agenda-borrar.php?idContacto=". $row["idContacto"]."'>Borrar</a></td>";
+                                        echo "<td><a href='agenda-alta-redes.php?idRed=". $row["idContacto"]."'>Alta&nbspRedes</a></td>";
                                     echo "</tr>";
+                                    
                                     }
                                 }else {
                                         echo "La búsqueda no ha dado resultados";
